@@ -15,13 +15,10 @@ class MainTest {
         PrintStream originalOut = System.out;
         ByteArrayOutputStream output = new ByteArrayOutputStream();
 
-        try {
-            System.setOut(new PrintStream(output));
+        try (PrintStream testOut = new PrintStream(output)) {
+            System.setOut(testOut);
             Main.main(new String[]{});
-
-            String result = output.toString();
-
-            assertTrue(result.contains("Arhan"));
+            assertTrue(output.toString().contains("Arhan"));
         } finally {
             System.setOut(originalOut);
         }
