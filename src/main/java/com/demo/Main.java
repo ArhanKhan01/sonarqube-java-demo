@@ -1,0 +1,10 @@
+package com.demo;
+
+public class Main {
+    public static void main(String[] args) {
+        UserService service = new UserService();
+
+        System.out.println(service.getUserName("Arhan"));
+        System.out.println(service.calculateDiscount(1000, 10));
+    }
+}
